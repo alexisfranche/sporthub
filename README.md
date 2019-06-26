@@ -1,1 +1,1 @@
-# sporthub by les chodes
+# sporthub
