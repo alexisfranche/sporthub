@@ -4,8 +4,11 @@
 package com.leschodes.sporthub.model;
 import java.sql.Date;
 
+import javax.persistence.MappedSuperclass;
+
 // line 4 "../../../../../../../ump/tmp930352/model.ump"
 // line 25 "../../../../../../../ump/tmp930352/model.ump"
+@MappedSuperclass
 public abstract class SportEvent
 {
 
