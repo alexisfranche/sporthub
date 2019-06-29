@@ -2,136 +2,140 @@
 /*This code was generated using the UMPLE 1.29.1.4529.a212bcccf modeling language!*/
 
 package com.leschodes.sporthub.model;
+
 import java.sql.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 // line 4 "../../../../../../../ump/tmp930352/model.ump"
 // line 25 "../../../../../../../ump/tmp930352/model.ump"
 @MappedSuperclass
-public abstract class SportEvent
-{
+public abstract class SportEvent {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
+	// ------------------------
+	// MEMBER VARIABLES
+	// ------------------------
 
-  //SportEvent Attributes
-  private String location;
-  private Date timeAndDate;
-  private String teamHome;
-  private String teamAway;
-  private float price;
-  private String level;
+	// SportEvent Attributes
+	private String location;
+	private Date timeAndDate;
+	private String teamHome;
+	private String teamAway;
+	private float price;
+	private String level;
+	private int id;
 
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
+	// ------------------------
+	// CONSTRUCTOR
+	// ------------------------
 
-  public SportEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice, String aLevel)
-  {
-    location = aLocation;
-    timeAndDate = aTimeAndDate;
-    teamHome = aTeamHome;
-    teamAway = aTeamAway;
-    price = aPrice;
-    level = aLevel;
-  }
+	public SportEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice,
+			String aLevel, int aId) {
+		location = aLocation;
+		timeAndDate = aTimeAndDate;
+		teamHome = aTeamHome;
+		teamAway = aTeamAway;
+		price = aPrice;
+		level = aLevel;
+		id = aId;
+	}
 
-  //------------------------
-  // INTERFACE
-  //------------------------
+	// ------------------------
+	// INTERFACE
+	// ------------------------
 
-  public boolean setLocation(String aLocation)
-  {
-    boolean wasSet = false;
-    location = aLocation;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setLocation(String aLocation) {
+		boolean wasSet = false;
+		location = aLocation;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public boolean setTimeAndDate(Date aTimeAndDate)
-  {
-    boolean wasSet = false;
-    timeAndDate = aTimeAndDate;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setTimeAndDate(Date aTimeAndDate) {
+		boolean wasSet = false;
+		timeAndDate = aTimeAndDate;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public boolean setTeamHome(String aTeamHome)
-  {
-    boolean wasSet = false;
-    teamHome = aTeamHome;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setTeamHome(String aTeamHome) {
+		boolean wasSet = false;
+		teamHome = aTeamHome;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public boolean setTeamAway(String aTeamAway)
-  {
-    boolean wasSet = false;
-    teamAway = aTeamAway;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setTeamAway(String aTeamAway) {
+		boolean wasSet = false;
+		teamAway = aTeamAway;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public boolean setPrice(float aPrice)
-  {
-    boolean wasSet = false;
-    price = aPrice;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setPrice(float aPrice) {
+		boolean wasSet = false;
+		price = aPrice;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public boolean setLevel(String aLevel)
-  {
-    boolean wasSet = false;
-    level = aLevel;
-    wasSet = true;
-    return wasSet;
-  }
+	public boolean setLevel(String aLevel) {
+		boolean wasSet = false;
+		level = aLevel;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public String getLocation()
-  {
-    return location;
-  }
+	public boolean setId(int aId) {
+		boolean wasSet = false;
+		id = aId;
+		wasSet = true;
+		return wasSet;
+	}
 
-  public Date getTimeAndDate()
-  {
-    return timeAndDate;
-  }
+	public String getLocation() {
+		return location;
+	}
 
-  public String getTeamHome()
-  {
-    return teamHome;
-  }
+	public Date getTimeAndDate() {
+		return timeAndDate;
+	}
 
-  public String getTeamAway()
-  {
-    return teamAway;
-  }
+	public String getTeamHome() {
+		return teamHome;
+	}
 
-  public float getPrice()
-  {
-    return price;
-  }
+	public String getTeamAway() {
+		return teamAway;
+	}
 
-  public String getLevel()
-  {
-    return level;
-  }
+	public float getPrice() {
+		return price;
+	}
 
-  public void delete()
-  {}
+	public String getLevel() {
+		return level;
+	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	public int getId() {
+		return id;
+	}
 
-  public String toString()
-  {
-    return super.toString() + "["+
-            "location" + ":" + getLocation()+ "," +
-            "teamHome" + ":" + getTeamHome()+ "," +
-            "teamAway" + ":" + getTeamAway()+ "," +
-            "price" + ":" + getPrice()+ "," +
-            "level" + ":" + getLevel()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "timeAndDate" + "=" + (getTimeAndDate() != null ? !getTimeAndDate().equals(this)  ? getTimeAndDate().toString().replaceAll("  ","    ") : "this" : "null");
-  }
+	public void delete() {
+	}
+
+	public String toString() {
+		return super.toString() + "[" + "id" + ":" + getId() + "," + "location" + ":" + getLocation() + "," + "teamHome"
+				+ ":" + getTeamHome() + "," + "teamAway" + ":" + getTeamAway() + "," + "price" + ":" + getPrice() + ","
+				+ "level" + ":" + getLevel() + "]" + System.getProperties().getProperty("line.separator") + "  "
+				+ "timeAndDate" + "="
+				+ (getTimeAndDate() != null
+						? !getTimeAndDate().equals(this) ? getTimeAndDate().toString().replaceAll("  ", "    ") : "this"
+						: "null");
+	}
 }

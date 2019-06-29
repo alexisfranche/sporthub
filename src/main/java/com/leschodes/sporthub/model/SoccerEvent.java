@@ -2,33 +2,41 @@
 /*This code was generated using the UMPLE 1.29.1.4529.a212bcccf modeling language!*/
 
 package com.leschodes.sporthub.model;
+
 import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 // line 20 "../../../../../../../ump/tmp930352/model.ump"
 // line 35 "../../../../../../../ump/tmp930352/model.ump"
-public class SoccerEvent extends SportEvent
-{
+@Entity
+@Table(name = "basketball_event")
+public class SoccerEvent extends SportEvent {
 
-  //------------------------
-  // MEMBER VARIABLES
-  //------------------------
+	// ------------------------
+	// MEMBER VARIABLES
+	// ------------------------
 
-  //------------------------
-  // CONSTRUCTOR
-  //------------------------
+	// ------------------------
+	// CONSTRUCTOR
+	// ------------------------
+	@JsonCreator
+	public SoccerEvent(@JsonProperty("location") String aLocation, @JsonProperty("timeAndDate") Date aTimeAndDate,
+			@JsonProperty("teamHome") String aTeamHome, @JsonProperty("teamAway") String aTeamAway,
+			@JsonProperty("price") float aPrice, @JsonProperty("level") String aLevel, @JsonProperty("id") int aId) {
+		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel, aId);
+	}
 
-  public SoccerEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice, String aLevel)
-  {
-    super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel);
-  }
+	// ------------------------
+	// INTERFACE
+	// ------------------------
 
-  //------------------------
-  // INTERFACE
-  //------------------------
-
-  public void delete()
-  {
-    super.delete();
-  }
+	public void delete() {
+		super.delete();
+	}
 
 }

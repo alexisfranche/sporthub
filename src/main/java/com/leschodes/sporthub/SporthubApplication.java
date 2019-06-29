@@ -2,12 +2,34 @@ package com.leschodes.sporthub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 public class SporthubApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SporthubApplication.class, args);
+	}
+
+	// Allow ORS
+	@Bean
+	@SuppressWarnings("deprecation")
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+
+				String webFrontEnd = "";
+
+				String localhost = "http://localhost:8080";
+
+				registry.addMapping("/**");
+				// registry.addMapping("/**").allowedOrigins(localhost, webFrontEnd);
+			}
+		};
 	}
 
 }
