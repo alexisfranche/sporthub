@@ -45,6 +45,7 @@ test {
 	useJUnitPlatform()
 }
 
+// I dont know if this line is useful, i dont know why jar task is skipped but with that it doesn't skip
 jar{
 	enabled = true
 }
