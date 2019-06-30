@@ -34,7 +34,6 @@ public abstract class SportEvent {
 	// ------------------------
 	// CONSTRUCTOR
 	// ------------------------
-
 	public SportEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice,
 			String aLevel) {
 		location = aLocation;
@@ -44,6 +43,8 @@ public abstract class SportEvent {
 		price = aPrice;
 		level = aLevel;
 	}
+	
+	public SportEvent() {}
 
 	// ------------------------
 	// INTERFACE

@@ -30,6 +30,10 @@ public class BasketballEvent extends SportEvent {
 			@JsonProperty("price") float aPrice, @JsonProperty("level") String aLevel, @JsonProperty("id") int aId) {
 		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel);
 	}
+	
+	public BasketballEvent() {
+		super();
+	}
 
 	// ------------------------
 	// INTERFACE
