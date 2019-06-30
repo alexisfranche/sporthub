@@ -28,7 +28,7 @@ public class SoccerEvent extends SportEvent {
 	public SoccerEvent(@JsonProperty("location") String aLocation, @JsonProperty("timeAndDate") Date aTimeAndDate,
 			@JsonProperty("teamHome") String aTeamHome, @JsonProperty("teamAway") String aTeamAway,
 			@JsonProperty("price") float aPrice, @JsonProperty("level") String aLevel, @JsonProperty("id") int aId) {
-		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel, aId);
+		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel);
 	}
 
 	// ------------------------

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 // line 4 "../../../../../../../ump/tmp930352/model.ump"
 // line 25 "../../../../../../../ump/tmp930352/model.ump"
 @MappedSuperclass
@@ -21,6 +23,7 @@ public abstract class SportEvent {
 
 	// SportEvent Attributes
 	private String location;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date timeAndDate;
 	private String teamHome;
 	private String teamAway;
@@ -33,14 +36,13 @@ public abstract class SportEvent {
 	// ------------------------
 
 	public SportEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice,
-			String aLevel, int aId) {
+			String aLevel) {
 		location = aLocation;
 		timeAndDate = aTimeAndDate;
 		teamHome = aTeamHome;
 		teamAway = aTeamAway;
 		price = aPrice;
 		level = aLevel;
-		id = aId;
 	}
 
 	// ------------------------
