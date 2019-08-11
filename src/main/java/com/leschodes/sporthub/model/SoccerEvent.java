@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 // line 20 "../../../../../../../ump/tmp930352/model.ump"
 // line 35 "../../../../../../../ump/tmp930352/model.ump"
 @Entity
-@Table(name = "basketball_event")
+@Table(name = "soccer_event")
 public class SoccerEvent extends SportEvent {
 
 	// ------------------------
