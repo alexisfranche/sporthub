@@ -37,5 +37,16 @@ public class BasketballEventRepository {
 		basketballEvents = entityManager.createQuery("SELECT a FROM BasketballEvent a").getResultList();
 		return basketballEvents;
 	}
+	
+	@Transactional
+	public boolean deleteBasketballEvent(int id) {
+		BasketballEvent bballEvent = entityManager.find(BasketballEvent.class, id);
+		
+		if(bballEvent == null)
+			return false;
+		
+		entityManager.remove(bballEvent);
+		return true;
+	}
 
 }

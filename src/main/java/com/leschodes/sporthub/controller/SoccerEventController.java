@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,15 @@ public class SoccerEventController {
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	public SoccerEvent addSoccerEvent(@RequestBody SoccerEvent soccerEvent) {
 	    return repository.addSoccerEvent(soccerEvent);
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<String> deleteSoccerEvent(@PathVariable("id") int id) {
+		boolean isDeleted = repository.deleteSoccerEvent(id);
+		if (isDeleted)
+			return new ResponseEntity<String>("SoccerEvent succesfully deleted.", HttpStatus.OK);
+		else
+			return new ResponseEntity<String>("SoccerEvent could not be found or deleted.", HttpStatus.BAD_REQUEST);
 	}
 
 }

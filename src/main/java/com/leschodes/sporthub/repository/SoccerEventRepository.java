@@ -37,4 +37,15 @@ public class SoccerEventRepository {
 		return soccerEventAll;
 	}
 	
+	@Transactional
+	public boolean deleteSoccerEvent(int id) {
+		SoccerEvent soccerEvent = entityManager.find(SoccerEvent.class, id);
+		
+		if(soccerEvent == null)
+			return false;
+		
+		entityManager.remove(soccerEvent);
+		return true;
+	}
+	
 }
