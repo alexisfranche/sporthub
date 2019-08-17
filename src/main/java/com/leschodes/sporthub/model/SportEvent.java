@@ -37,6 +37,8 @@ public abstract class SportEvent {
 	private float price;
 	private String level;
 	private int id;
+	private double longitude;
+	private double latitude;
 
 	// SportEvent Associations
 	private List<Team> teams;
@@ -45,13 +47,15 @@ public abstract class SportEvent {
 	// CONSTRUCTOR
 	// ------------------------
 	public SportEvent(String aLocation, Date aTimeAndDate, String aTeamHome, String aTeamAway, float aPrice,
-			String aLevel) {
+			String aLevel, double aLongitude, double aLatitude) {
 		location = aLocation;
 		timeAndDate = aTimeAndDate;
 		teamHome = aTeamHome;
 		teamAway = aTeamAway;
 		price = aPrice;
 		level = aLevel;
+		longitude = aLongitude;
+		latitude = aLatitude;
 		teams = new ArrayList<Team>();
 	}
 
@@ -103,6 +107,20 @@ public abstract class SportEvent {
 		wasSet = true;
 		return wasSet;
 	}
+	
+	public boolean setLongitude(double aLongitude) {
+		boolean wasSet = false;
+		longitude = aLongitude;
+		wasSet = true;
+		return wasSet;
+	}
+	
+	public boolean setLatitude(double aLatitude) {
+		boolean wasSet = false;
+		latitude = aLatitude;
+		wasSet = true;
+		return wasSet;
+	}
 
 	public boolean setId(int aId) {
 		boolean wasSet = false;
@@ -133,6 +151,14 @@ public abstract class SportEvent {
 
 	public String getLevel() {
 		return level;
+	}
+	
+	public double getLongitude() {
+		return longitude;
+	}
+	
+	public double getLatitude() {
+		return latitude;
 	}
 
 	@Id
@@ -246,6 +272,8 @@ public abstract class SportEvent {
 	            "teamHome" + ":" + getTeamHome()+ "," +
 	            "teamAway" + ":" + getTeamAway()+ "," +
 	            "price" + ":" + getPrice()+ "," +
+	            "longitude" + ":" + getLongitude()+ "," +
+	            "latitude" + ":" + getLatitude()+ "," +
 	            "level" + ":" + getLevel()+ "]" + System.getProperties().getProperty("line.separator") +
 	            "  " + "timeAndDate" + "=" + (getTimeAndDate() != null ? !getTimeAndDate().equals(this)  ? getTimeAndDate().toString().replaceAll("  ","    ") : "this" : "null");
 	  }

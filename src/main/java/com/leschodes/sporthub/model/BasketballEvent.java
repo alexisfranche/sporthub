@@ -27,10 +27,12 @@ public class BasketballEvent extends SportEvent {
 	@JsonCreator
 	public BasketballEvent(@JsonProperty("location") String aLocation, @JsonProperty("timeAndDate") Date aTimeAndDate,
 			@JsonProperty("teamHome") String aTeamHome, @JsonProperty("teamAway") String aTeamAway,
-			@JsonProperty("price") float aPrice, @JsonProperty("level") String aLevel, @JsonProperty("id") int aId) {
-		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel);
+			@JsonProperty("price") float aPrice, @JsonProperty("level") String aLevel,
+			@JsonProperty("longitude") double aLongitude, @JsonProperty("latitude") double aLatitude,
+			@JsonProperty("id") int aId) {
+		super(aLocation, aTimeAndDate, aTeamHome, aTeamAway, aPrice, aLevel, aLongitude, aLatitude);
 	}
-	
+
 	public BasketballEvent() {
 		super();
 	}
